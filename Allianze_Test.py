@@ -93,3 +93,19 @@ async def main():
 
 # Run the main function
 asyncio.run(main())
+# Unit tests
+def test_summarize_stats():
+    data = [
+        ('1990', 'Team A', 10, 5),
+        ('1990', 'Team B', 15, 10),
+        ('1990', 'Team C', 5, 15),
+        ('1991', 'Team D', 20, 5),
+        ('1991', 'Team E', 18, 7),
+        ('1991', 'Team F', 2, 18),
+    ]
+    summary = summarize_stats(data)
+    expected = [
+        ('1990', 'Team B', 15, 'Team C', 5),
+        ('1991', 'Team D', 20, 'Team F', 2),
+    ]
+    assert summary == expected
